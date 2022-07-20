@@ -29,14 +29,13 @@ export default function App() {
     setContacts(state => {
       if (state.every(({ name }) =>
         name.toLowerCase() !== newName.name.toLowerCase())) {
-        return [...state, newName]
+        return [newName, ...state]
       } else {
         alert(`${newName.name} is already in contacts`);
         return state;
       }
     });
   };
-
 
   const deleteContact = (contactId) => {
     setContacts(state => state.filter(contact => contact.id !== contactId));
